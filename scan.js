@@ -11,6 +11,7 @@ function startScan() {
 	active = true;
 
 	var rang = dropdown.options[dropdown.selectedIndex].value;
+	var cidr = dropdown.options[dropdown.selectedIndex].cidr;
 	var port;
 	var host;
 	var server_index = 1;
@@ -55,7 +56,9 @@ function startScan() {
 				msg.innerHTML = 'Scan aborted.';
 				return;
 			}
-
+			
+			// Add code to reset server_index to 1 and increment the last octet of rang if cidr is less than 24.
+			
 			if ( port_index < ports.length-1 )
 			{
 				port_index++;
